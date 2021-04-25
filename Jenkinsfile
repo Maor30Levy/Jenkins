@@ -7,9 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    echo "****************************"
                     echo "** Building Docker Image ***"
-                    echo "****************************"
                     docker build -t maor30levy/client-test -f ./client-template/Dockerfile ./client-template
                 '''
             }
@@ -23,7 +21,15 @@ pipeline {
 
         stage('Push') {
             steps {
-                echo 'pushing..'
+                sh '''
+                    echo "** Pushing Docker Image ***"
+                    
+                    echo "** Logging in ***"
+                    docker login -u maor30levy -p $DOCKER_PASS
+                    echo "*** Pushing image ***"
+                    docker push maor30levy/client-test
+                '''
+                
             }
         }
 
