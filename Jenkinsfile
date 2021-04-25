@@ -40,6 +40,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'deploying..'
+                echo '$VM_IP'
             }
         }
     }
