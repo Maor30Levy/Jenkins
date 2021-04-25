@@ -3,8 +3,7 @@ pipeline {
     agent any
     
     environment {
-        PASS = credentials('DOCKER_PASS')
-        KEY = credentials('EC2_PAIRKEY')
+        PASS = credentials('DOCKER_PASS') 
     }
 
     stages {
