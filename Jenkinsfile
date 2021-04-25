@@ -41,7 +41,7 @@ pipeline {
             steps {
                 sh '''
                     echo "deploying.."
-                    ssh -i ~/.ssh/test.pem ec2-user@ec2-18-218-96-165.us-east-2.compute.amazonaws.com docker run $REGISTER_USERNAME/$COMPONENT
+                    ssh -i "~/.ssh/test.pem" ec2-user@ec2-18-218-96-165.us-east-2.compute.amazonaws.com docker run -p 80:3000 $REGISTER_USERNAME/$COMPONENT
                 '''
                 
             }
