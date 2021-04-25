@@ -40,9 +40,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh '
-                    'echo 'deploying..'
-                '
+                sh 'echo 'deploying..'
                 sshagent(credentials : ['EC2_KEY_PAIR']) {
                     sh 'ssh ec2-user@ec2-18-218-96-165.us-east-2.compute.amazonaws.com docker run $REGISTER_USERNAME/$COMPONENT'
                 }
