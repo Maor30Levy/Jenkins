@@ -1,6 +1,10 @@
 pipeline {
 
     agent any
+    
+    environment {
+        PASS = credentials('DOCKER_PASS') 
+    }
 
     stages {
 
@@ -25,7 +29,7 @@ pipeline {
                     echo "** Pushing Docker Image ***"
                     
                     echo "** Logging in ***"
-                    docker login -u $REGISTER_USERNAME -p $DOCKER_PASS
+                    docker login -u $REGISTER_USERNAME -p $PASS
                     echo "*** Pushing image ***"
                     docker push $REGISTER_USERNAME/$COMPONENT
                 '''
