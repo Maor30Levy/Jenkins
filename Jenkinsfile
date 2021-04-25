@@ -8,7 +8,7 @@ pipeline {
             steps {
                 sh '''
                     echo "** Building Docker Image ***"
-                    docker build -t maor30levy/client-test -f ./client-template/Dockerfile ./client-template
+                    docker build -t $REGISTER_USERNAME/$COMPONENT -f ./$COMPONENT/Dockerfile ./$COMPONENT
                 '''
             }
         }
@@ -25,9 +25,9 @@ pipeline {
                     echo "** Pushing Docker Image ***"
                     
                     echo "** Logging in ***"
-                    docker login -u maor30levy -p $DOCKER_PASS
+                    docker login -u $REGISTER_USERNAME -p $DOCKER_PASS
                     echo "*** Pushing image ***"
-                    docker push maor30levy/client-test
+                    docker push $REGISTER_USERNAME/$COMPONENT
                 '''
                 
             }
