@@ -10,7 +10,7 @@ pipeline {
                     echo "****************************"
                     echo "** Building Docker Image ***"
                     echo "****************************"
-                    docker build -t maor30levy/client-test -f ./client-template ./client-template
+                    docker build -t maor30levy/client-test -f ./client-template/Dockerfile ./client-template
                 '''
             }
         }
