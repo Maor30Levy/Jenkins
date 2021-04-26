@@ -11,8 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    echo "** Building Docker Image ***"
-                    docker build -t $REGISTER_USERNAME/$COMPONENT -f ./$COMPONENT/Dockerfile ./$COMPONENT
+                    ./build/build.sh
                 '''
             }
         }
