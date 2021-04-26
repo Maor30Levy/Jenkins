@@ -39,9 +39,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sshagent(['EC2_KEY_PAIR']) {
-                    sh "ssh -T ec2-user@$VM_IP"
-                }
+                    sh "ssh ec2-user@$VM_IP"
                 
             }
         }
