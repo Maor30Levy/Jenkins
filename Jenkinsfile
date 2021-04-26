@@ -39,7 +39,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                    sh "ssh -T ec2-user@$VM_IP"
+                    sh "ssh -T ec2-user@$VM_IP docker run $REGISTER_USERNAME/$COMPONENT"
                 
             }
         }
