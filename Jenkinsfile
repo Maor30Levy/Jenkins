@@ -39,7 +39,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                    sh "ssh ec2-user@$VM_IP"
+                    sh "ssh -T ec2-user@$VM_IP"
                 
             }
         }
