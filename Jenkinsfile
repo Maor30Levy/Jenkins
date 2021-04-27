@@ -32,6 +32,7 @@ pipeline {
                     docker login -u $REGISTER_USERNAME -p $PASS
                     echo "*** Pushing image ***"
                     docker push $REGISTER_USERNAME/$COMPONENT
+                    rm -rf ./$COMPONENT
                 '''
                 
             }
