@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh '''
                     chmod +x ./jenkins/build/build.sh
-                    ./jenkins/build/build.sh $REGISTER_USERNAME $COMPONENT
+                    ./jenkins/build/build.sh
                 '''
             }
         }
@@ -26,13 +26,8 @@ pipeline {
         stage('Push') {
             steps {
                 sh '''
-                    echo "** Pushing Docker Image ***"
-                    
-                    echo "** Logging in ***"
-                    docker login -u $REGISTER_USERNAME -p $PASS
-                    echo "*** Pushing image ***"
-                    docker push $REGISTER_USERNAME/$COMPONENT
-                    rm -rf ./$COMPONENT
+                    chmod +x ./jenkins/push/push.sh
+                    ./jenkins/push/push.sh
                 '''
                 
             }
