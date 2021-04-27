@@ -19,7 +19,10 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'testing..'
+                sh '''
+                    chmod +x ./jenkins/test/test.sh
+                    ./jenkins/test/test.sh
+                '''
             }
         }
 
