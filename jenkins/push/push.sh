@@ -5,7 +5,7 @@ echo "** Pushing image ***"
 echo "********************"
                     
 echo "** Logging in ***"
-docker login -u $REGISTER_USERNAME -p $PASS
+echo "$PASS" | docker login -u "$REGISTER_USERNAME" --password-stdin
 echo "*** Pushing image ***"
 docker push $REGISTER_USERNAME/$COMPONENT
 rm -rf ./$COMPONENT
