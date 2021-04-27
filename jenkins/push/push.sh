@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "********************"
-echo "** Pushing image ***"
-echo "********************"
+echo "******************************"
+echo "******* Pushing image ********"
+echo "******************************"
                     
 echo "** Logging in ***"
 echo "$PASS" | docker login -u "$REGISTER_USERNAME" --password-stdin
