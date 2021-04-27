@@ -7,11 +7,17 @@ pipeline {
     }
 
     stages {
-
+        stage('Setup Permissions') {
+            steps {
+                sh '''
+                    echo "***** Setting up permissions *****"
+                    chmod -R +x ./jenkins
+                '''
+            }
+        }
         stage('Build') {
             steps {
                 sh '''
-                    chmod -R +x ./jenkins
                     ./jenkins/build/build.sh
                 '''
             }
