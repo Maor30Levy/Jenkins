@@ -3,12 +3,9 @@
 echo "********************"
 echo "** Pushing image ***"
 echo "********************"
-
-IMAGE="maven-project"
-
+                    
 echo "** Logging in ***"
-docker login -u ricardoandre97 -p $PASS
-echo "*** Tagging image ***"
-docker tag $IMAGE:$BUILD_TAG ricardoandre97/$IMAGE:$BUILD_TAG
+docker login -u $REGISTER_USERNAME -p $PASS
 echo "*** Pushing image ***"
-docker push ricardoandre97/$IMAGE:$BUILD_TAG
+docker push $REGISTER_USERNAME/$COMPONENT
+rm -rf ./$COMPONENT
