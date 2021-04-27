@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Setup Permissions') {
+        stage('Permissions-Setup') {
             steps {
                 sh '''
                     echo "***** Setting up permissions *****"
