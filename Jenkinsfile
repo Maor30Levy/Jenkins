@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    chmod +x ./jenkins/build/build.sh
+                    chmod -R +x ./jenkins
                     ./jenkins/build/build.sh
                 '''
             }
@@ -20,7 +20,6 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                    chmod +x ./jenkins/test/test.sh
                     ./jenkins/test/test.sh
                 '''
             }
@@ -29,7 +28,6 @@ pipeline {
         stage('Push') {
             steps {
                 sh '''
-                    chmod +x ./jenkins/push/push.sh
                     ./jenkins/push/push.sh
                 '''
                 
