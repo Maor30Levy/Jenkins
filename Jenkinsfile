@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh '''
                     chmod +x ./jenkins/build/build.sh
-                    ./jenkins/build/build.sh
+                    ./jenkins/build/build.sh $REGISTER_USERNAME $COMPONENT
                 '''
             }
         }
@@ -37,11 +37,6 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                    sh "ssh -T ec2-user@$VM_IP docker run -p 80:$PORT $REGISTER_USERNAME/$COMPONENT"
-                
-            }
-        }
+        
     }
 }
