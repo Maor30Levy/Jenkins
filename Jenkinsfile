@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    
+                    chmod -R +x ./jenkins
                     ./jenkins/build/build.sh
                 '''
             }
