@@ -3,4 +3,4 @@
 echo "******************************"
 echo "***** Deploying Project ******"
 echo "******************************"
-ssh -T ec2-user@$VM_IP "echo $HOSTNAME"
+ssh -T ec2-user@$VM_IP ./deploy/publish.sh
