@@ -3,4 +3,5 @@
 echo "******************************"
 echo "***** Deploying Project ******"
 echo "******************************"
-ssh -T ec2-user@$VM_IP './publish.sh'
+echo $PWD
+ssh -T ec2-user@$VM_IP
