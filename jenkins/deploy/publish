@@ -6,4 +6,4 @@ export PORT=$(sed -n '3p' /tmp/.project_name)
 export PROJECT="$UNAME/$COMPONENT"
 docker images $PROJECT && echo "*** Removing old image... ***" && docker rmi -f $PROJECT && docker kill $COMPONENT
 "*** Initiating $PROJECT... ***"
-docker run -l $COMPONENT -d -p $PORT:$PORT $PROJECT 
+docker run --name $COMPONENT -d -p $PORT:$PORT $PROJECT 
