@@ -4,4 +4,4 @@ export UNAME=$(sed -n '1p' /tmp/.project_name)
 export COMPONENT=$(sed -n '2p' /tmp/.project_name)
 export PORT=$(sed -n '3p' /tmp/.project_name)
 export PROJECT="$UNAME/$COMPONENT"
-docker run -d -env PORT=$PORT -p $PORT:$PORT $PROJECT 
+docker run -d -p $PORT:$PORT $PROJECT 
